@@ -18,7 +18,7 @@ void ADC_Init(){
     ADMUX &=~ (0x1F);
 }
 
-uint16_t ADC_Read(uint8_t mux)
+uint16_t ADC_Read(uint8_t mux, char mode)
 {
     ADMUX &=~ (0x1F);
     ADMUX |= (mux);
@@ -26,5 +26,19 @@ uint16_t ADC_Read(uint8_t mux)
 	//return data;
 	data1 = ADCL;
 	data2 = ADCH;
-	return data2*256 + data1;
+	
+	if (mode == 'F')
+	{
+		hasil = data2*256 + data1;
+	}
+	if (mode == 'L')
+	{
+		hasil = data1;
+	}
+	if (mode == 'H')
+	{
+		hasil = data2;
+	}
+
+	return hasil;
 }

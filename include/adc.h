@@ -9,7 +9,8 @@
 
 void ADC_Init();
 
-uint16_t ADC_Read(uint8_t mux);
+uint16_t ADC_Read(uint8_t mux,char mode);
 uint16_t data1, data2;
+uint16_t hasil;
 
 #endif /* ADC_H_ */
